@@ -1,7 +1,7 @@
 # github practice
-# GitHub-Practice: Git, GitHub & Networking Practical Tasks
+# GitHub-Practice: Git and GitHub Tasks
 
-A hands-on practice repository documenting my Git, GitHub and networking exercises. It covers everyday version-control workflows (commits, branching, merging, reverting, ignoring files, resolving conflicts, stashing) and basic network troubleshooting with Windows PowerShell.
+A hands-on practice repository documenting my Git and GitHub. It covers everyday version-control workflows (commits, branching, merging, reverting, ignoring files, resolving conflicts, stashing).
 
 **Environment:** Windows 10/11, PowerShell / Git Bash / VS Code terminal
 **Level:** Beginner to DevOps fundamentals
@@ -16,10 +16,8 @@ A hands-on practice repository documenting my Git, GitHub and networking exercis
 4. [Part 1: Git and GitHub Fundamentals](#part-1-git-and-github-fundamentals)
 5. [Part 2: Resolving a Merge Conflict](#part-2-resolving-a-merge-conflict)
 6. [Part 3: Git Stash](#part-3-git-stash)
-7. [Part 4: Networking Practicals](#part-4-networking-practicals)
-8. [Key Concepts Learned](#key-concepts-learned)
-9. [Review-Call Q&A](#review-call-qa)
-10. [Command Cheat Sheet](#command-cheat-sheet)
+7. [Key Concepts Learned](#key-concepts-learned)
+8. [Command Cheat Sheet](#command-cheat-sheet)
 
 ---
 
@@ -420,35 +418,6 @@ git stash clear              # remove all stashes
 
 ---
 
-## Part 4: Networking Practicals
-
-Performed in Windows PowerShell. The commands below are the standard ones for each task; replace the placeholder values with the results from your own machine.
-
-| Task | Command | What it shows |
-|------|---------|---------------|
-| Private IPv4, subnet mask, default gateway | `ipconfig` (or `ipconfig /all`) | IPv4 address, subnet mask and default gateway of the active adapter |
-| Public IPv4 | `(Invoke-RestMethod https://api.ipify.org)` | The address the internet sees for your network |
-| Ping Google DNS | `ping 8.8.8.8` | Connectivity and round-trip time to Google Public DNS |
-| Ping router | `ping <default-gateway-IP>` | Connectivity to your local router |
-| Trace route and count hops | `tracert 8.8.8.8` | Each router (hop) between you and the target; the number of lines is the hop count |
-| DNS lookup (default server) | `nslookup google.com` | IP addresses for the domain using your default DNS server |
-| DNS lookup (Google DNS) | `nslookup google.com 8.8.8.8` | Same lookup via Google DNS |
-| DNS lookup (Cloudflare DNS) | `nslookup google.com 1.1.1.1` | Same lookup via Cloudflare DNS |
-
-### My results
-
-| Item | Value |
-|------|-------|
-| Private IPv4 address | _fill in_ |
-| Public IPv4 address | _fill in_ |
-| Subnet mask | _fill in_ |
-| Default gateway | _fill in_ |
-| Ping to 8.8.8.8 (avg) | _fill in_ ms |
-| Ping to router (avg) | _fill in_ ms |
-| Hops to 8.8.8.8 | _fill in_ |
-
----
-
 ## Key Concepts Learned
 
 - **Repository:** a project folder tracked by Git, with history stored in `.git`.
@@ -461,19 +430,6 @@ Performed in Windows PowerShell. The commands below are the standard ones for ea
 - **Stash:** a temporary shelf for uncommitted changes.
 - **Remote:** a hosted copy of the repository (GitHub), named `origin` by convention.
 
-## Review-Call Q&A
-
-**How do you resolve a merge conflict?**
-I identify conflicted files with `git status`, open them, inspect the conflicting changes from both branches, and manually choose or combine the correct code. I remove the conflict markers, save, stage with `git add`, commit the resolution, and verify with `git status` and `git log`.
-
-**What is the difference between `git stash apply` and `git stash pop`?**
-`apply` restores the saved changes and keeps the stash entry. `pop` restores the changes and removes the entry if it applies successfully.
-
-**Why use `git revert` instead of `git reset` on shared branches?**
-Revert adds a new commit and preserves history, so it does not disrupt collaborators. Reset rewrites history.
-
-**Why did `.gitignore` not hide a file that was already committed?**
-Git keeps tracking files that are already in the index. Use `git rm --cached <file>` to stop tracking it.
 
 ## Command Cheat Sheet
 
